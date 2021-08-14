@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
 import { palette } from './constants/globalStyles';
 import Header from './screens/widgets/Header';
@@ -21,11 +22,13 @@ export default () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Header />
-      {!numberPlayed && <StartGame startGame={startGameHandler} />}
-      {numberPlayed && <PlayGame usersNumber={numberPlayed} restartGame={() => setNumberPlayed()} />}
-    </View>
+    <SafeAreaProvider>
+      <View style={styles.container}>
+        <Header />
+        {!numberPlayed && <StartGame startGame={startGameHandler} />}
+        {numberPlayed && <PlayGame usersNumber={numberPlayed} restartGame={() => setNumberPlayed()} />}
+      </View>
+    </SafeAreaProvider>
   );
 };
 
