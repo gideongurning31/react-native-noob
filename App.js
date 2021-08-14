@@ -1,22 +1,18 @@
 import React from 'react';
-import { StyleSheet, View, Touchable } from 'react-native';
-import MyComponent from './components/MyComponent';
+import { StyleSheet, View } from 'react-native';
+import { globalStyles, palette } from './constants/globalStyles';
+import Header from './screens/widgets/Header';
 
 export default () => {
   return (
-    <Touchable>
-      <View style={styles.container}>
-        <MyComponent />
-      </View>
-    </Touchable>
+    <View style={styles.container}>
+      <Header />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: palette.canvas
   }
 });
