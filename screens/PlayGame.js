@@ -1,37 +1,58 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { StyleSheet, View, Text, Button, Alert } from 'react-native';
 import { globalStyles, palette } from '../constants/globalStyles';
 import Card from './widgets/Card';
 
+function guessNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 export default ({ usersNumber }) => {
-  const [comNumber, setComNumber] = useState(guessNumber(1, 100));
+  const count = useRef(1);
+  const currentMin = useRef(1);
+  const currentMax = useRef(100);
+  const [comNumber, setComNumber] = useState(guessNumber(currentMin.current, currentMax.current));
 
-  function guessNumber(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+  const answerHandler = direction => {
+    const isGreater = direction === 'greater';
+    if ((isGreater && usersNumber < comNumber) || (!isGreater && usersNumber > comNumber)) {
+      Alert.alert('Are you sure?', "Don't be a bitch please.", [{ text: 'Okay, I lied.', style: 'cancel' }]);
+      return;
+    } else nextGuess(isGreater);
+  };
 
-  function onLower() {
-    console.log(usersNumber < comNumber ? 'OK' : 'Lied');
-  }
+  const nextGuess = isGreater => {
+    if (isGreater) currentMin.current = comNumber + 1;
+    else currentMax.current = comNumber - 1;
+    count.current++;
+    setComNumber(guessNumber(currentMin.current, currentMax.current));
+  };
 
-  function onGreater() {
-    console.log(usersNumber > comNumber ? 'OK' : 'Lied');
-  }
+  const displayButtons = () => {
+    return (
+      <View style={styles.buttonContainer}>
+        <View style={styles.button}>
+          <Button title='LOWER' color={palette.dark1} onPress={answerHandler.bind(this, 'lower')} />
+        </View>
+        <View style={styles.button}>
+          <Button title='GREATER' color={palette.dark1} onPress={answerHandler.bind(this, 'greater')} />
+        </View>
+      </View>
+    );
+  };
 
   return (
     <Card>
-      <Text>Is your number greater or lower?</Text>
+      <Text>{usersNumber === comNumber ? `Computer guessed your number in ${count.current} turns.` : 'Is your number greater or lower than:'}</Text>
       <Text style={globalStyles.selectedNumber}>{comNumber}</Text>
-      <View style={styles.buttonContainer}>
+      {usersNumber !== comNumber && displayButtons()}
+      {usersNumber === comNumber && (
         <View style={styles.button}>
-          <Button title='LOWER' color={palette.dark1} onPress={onLower} />
+          <Button title='RESTART' color={palette.dark1} onPress={() => console.log('restart game')} />
         </View>
-        <View style={styles.button}>
-          <Button title='GREATER' color={palette.dark1} onPress={onGreater} />
-        </View>
-      </View>
+      )}
     </Card>
   );
 };
