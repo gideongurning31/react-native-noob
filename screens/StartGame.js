@@ -1,32 +1,40 @@
-import React from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, Button, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { palette } from '../constants/globalStyles';
 import Card from './widgets/Card';
+import NumberInput from './widgets/NumberInput';
 
 export default () => {
+  const [inputValue, setInputValue] = useState('');
+
+  const inputHandler = input => setInputValue(input.replace(/[^0-9]/g, ''));
+
   const onReset = () => {
-    console.log('RESET');
+    setInputValue('');
+    Keyboard.dismiss();
   };
 
   const onConfirm = () => {
-    console.log('CONFIRM');
+    onReset();
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Select a Number!</Text>
-      <Card>
-        <TextInput style={styles.input} keyboardType='number-pad' />
-        <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <Button title='Reset' color={palette.light1} onPress={onReset} />
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Select a Number!</Text>
+        <Card>
+          <NumberInput maxLength={2} onChangeText={inputHandler} value={inputValue} />
+          <View style={styles.buttonContainer}>
+            <View style={styles.button}>
+              <Button title='Reset' color={palette.light1} onPress={onReset} />
+            </View>
+            <View style={styles.button}>
+              <Button title='Confirm' color={palette.dark2} onPress={onConfirm} />
+            </View>
           </View>
-          <View style={styles.button}>
-            <Button title='Confirm' color={palette.dark2} onPress={onConfirm} />
-          </View>
-        </View>
-      </Card>
-    </View>
+        </Card>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -39,18 +47,6 @@ const styles = StyleSheet.create({
   title: {
     color: palette.dark1,
     fontSize: 18
-  },
-  input: {
-    borderWidth: 1,
-    borderRadius: 5,
-    backgroundColor: palette.light2,
-    borderColor: palette.dark2,
-    color: palette.dark1,
-    textAlign: 'center',
-    fontSize: 25,
-    padding: 10,
-    margin: 15,
-    width: 70
   },
   buttonContainer: {
     width: '100%',
