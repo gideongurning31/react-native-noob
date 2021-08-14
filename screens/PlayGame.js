@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, View, Text, Button, Image, Alert } from 'react-native';
 import { globalStyles, palette } from '../constants/globalStyles';
+import BtnPrimary from './widgets/BtnPrimary';
+import BtnAccent from './widgets/BtnAccent';
 import StdText from './widgets/StdText';
 import Card from './widgets/Card';
 
@@ -39,10 +41,10 @@ export default ({ usersNumber, restartGame }) => {
     return (
       <View style={styles.buttonContainer}>
         <View style={styles.button}>
-          <Button title='LOWER' color={palette.dark1} onPress={answerHandler.bind(this, 'lower')} />
+          <BtnAccent onPress={answerHandler.bind(this, 'lower')}>LOWER</BtnAccent>
         </View>
         <View style={styles.button}>
-          <Button title='GREATER' color={palette.dark1} onPress={answerHandler.bind(this, 'greater')} />
+          <BtnPrimary onPress={answerHandler.bind(this, 'greater')}>GREATER</BtnPrimary>
         </View>
       </View>
     );
@@ -53,7 +55,7 @@ export default ({ usersNumber, restartGame }) => {
       {!gameOver() && <StdText style={styles.cardText}>Is your number greater or lower than:</StdText>}
       {gameOver() && (
         <StdText style={styles.cardText}>
-          It took <Text style={styles.bold}>{count.current}</Text> turns to guess your number, here's your reward
+          It took <Text style={styles.bold}>{count.current}</Text> turns to guess your number, here's your reward:
         </StdText>
       )}
 
@@ -63,7 +65,7 @@ export default ({ usersNumber, restartGame }) => {
       {!gameOver() && displayButtons()}
       {gameOver() && (
         <View style={styles.button}>
-          <Button title='RESTART' color={palette.dark1} onPress={restartGame} />
+          <BtnPrimary onPress={restartGame}>RESTART</BtnPrimary>
         </View>
       )}
     </Card>

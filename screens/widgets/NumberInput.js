@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     padding: 10,
     margin: 15,
-    width: 70
+    height: 60,
+    width: 80
   }
 });

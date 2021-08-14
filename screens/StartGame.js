@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { StyleSheet, View, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import { palette } from '../constants/globalStyles';
 import Card from './widgets/Card';
 import NumberInput from './widgets/NumberInput';
 import BoldText from './widgets/BoldText';
+import BtnPrimary from './widgets/BtnPrimary';
+import BtnAccent from './widgets/BtnAccent';
 import GameCard from './GameCard';
 
 export default ({ startGame }) => {
@@ -40,12 +42,8 @@ export default ({ startGame }) => {
         <Card>
           <NumberInput maxLength={2} value={inputValue} onChangeText={inputHandler} />
           <View style={styles.buttonContainer}>
-            <View style={styles.button}>
-              <Button title='Reset' color={palette.light1} onPress={onReset} />
-            </View>
-            <View style={styles.button}>
-              <Button title='Confirm' color={palette.dark2} onPress={confirmHandler} />
-            </View>
+            <BtnAccent onPress={onReset}>RESET</BtnAccent>
+            <BtnPrimary onPress={confirmHandler}>CONFIRM</BtnPrimary>
           </View>
         </Card>
         {isConfirmed && <GameCard selectedNumber={selectedNumber} startGame={startGame} />}

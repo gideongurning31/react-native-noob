@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Button } from 'react-native';
-import { globalStyles, palette } from '../constants/globalStyles';
+import { StyleSheet } from 'react-native';
+import { globalStyles } from '../constants/globalStyles';
+import BtnPrimary from './widgets/BtnPrimary';
 import BoldText from './widgets/BoldText';
 import StdText from './widgets/StdText';
 import Card from './widgets/Card';
@@ -10,7 +11,7 @@ export default ({ selectedNumber, startGame }) => {
     <Card style={styles.summaryContainer}>
       <StdText>You've picked:</StdText>
       <BoldText style={globalStyles.selectedNumber}>{selectedNumber}</BoldText>
-      <Button title='START GAME' color={palette.dark2} onPress={() => startGame(selectedNumber)} />
+      <BtnPrimary onPress={() => startGame(selectedNumber)}>START GAME</BtnPrimary>
     </Card>
   );
 };
