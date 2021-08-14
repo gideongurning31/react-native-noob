@@ -8,4 +8,12 @@ export const palette = {
   canvas: '#DEDEDE'
 };
 
-export const globalStyles = StyleSheet.create({});
+export const globalStyles = StyleSheet.create({
+  selectedNumber: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 15,
+    color: palette.dark1
+  }
+});
