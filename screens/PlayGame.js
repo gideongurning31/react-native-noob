@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, View, Button, Image, Alert } from 'react-native';
+import { StyleSheet, View, Text, Button, Image, Alert } from 'react-native';
 import { globalStyles, palette } from '../constants/globalStyles';
 import StdText from './widgets/StdText';
 import Card from './widgets/Card';
@@ -31,6 +31,10 @@ export default ({ usersNumber, restartGame }) => {
     setComNumber(guessNumber(currentMin.current, currentMax.current));
   };
 
+  const gameOver = () => {
+    return usersNumber === comNumber;
+  };
+
   const displayButtons = () => {
     return (
       <View style={styles.buttonContainer}>
@@ -46,16 +50,18 @@ export default ({ usersNumber, restartGame }) => {
 
   return (
     <Card>
-      <StdText style={styles.cardText}>
-        {usersNumber === comNumber
-          ? `It took ${count.current} turns to guess your number, here's your reward:`
-          : 'Is your number greater or lower than:'}
-      </StdText>
-      {usersNumber === comNumber && count.current % 2 === 0 && <Image source={require('../assets/images/emi.jpg')} style={styles.image} fadeDuration={600} />}
-      {usersNumber === comNumber && count.current % 2 !== 0 && <Image source={require('../assets/images/gal.jpg')} style={styles.image} fadeDuration={600} />}
+      {!gameOver() && <StdText style={styles.cardText}>Is your number greater or lower than:</StdText>}
+      {gameOver() && (
+        <StdText style={styles.cardText}>
+          It took <Text style={styles.bold}>{count.current}</Text> turns to guess your number, here's your reward
+        </StdText>
+      )}
+
+      {gameOver() && count.current % 2 === 0 && <Image source={require('../assets/images/emi.jpg')} style={styles.image} fadeDuration={600} />}
+      {gameOver() && count.current % 2 !== 0 && <Image source={require('../assets/images/gal.jpg')} style={styles.image} fadeDuration={600} />}
       <StdText style={globalStyles.selectedNumber}>{usersNumber !== comNumber ? comNumber : `Your number is ${comNumber}`}</StdText>
-      {usersNumber !== comNumber && displayButtons()}
-      {usersNumber === comNumber && (
+      {!gameOver() && displayButtons()}
+      {gameOver() && (
         <View style={styles.button}>
           <Button title='RESTART' color={palette.dark1} onPress={restartGame} />
         </View>
@@ -75,6 +81,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly'
   },
   button: { width: 100 },
+  bold: {
+    fontFamily: 'bold',
+    color: palette.dark2
+  },
   image: {
     margin: 20,
     width: '80%',
