@@ -9,7 +9,7 @@ function guessNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-export default ({ usersNumber }) => {
+export default ({ usersNumber, restartGame }) => {
   const count = useRef(1);
   const currentMin = useRef(1);
   const currentMax = useRef(100);
@@ -50,7 +50,7 @@ export default ({ usersNumber }) => {
       {usersNumber !== comNumber && displayButtons()}
       {usersNumber === comNumber && (
         <View style={styles.button}>
-          <Button title='RESTART' color={palette.dark1} onPress={() => console.log('restart game')} />
+          <Button title='RESTART' color={palette.dark1} onPress={restartGame} />
         </View>
       )}
     </Card>

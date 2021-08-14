@@ -13,7 +13,7 @@ export default () => {
     <View style={styles.container}>
       <Header />
       {!numberPlayed && <StartGame startGame={startGameHandler} />}
-      {numberPlayed && <PlayGame usersNumber={numberPlayed} />}
+      {numberPlayed && <PlayGame usersNumber={numberPlayed} restartGame={() => setNumberPlayed()} />}
     </View>
   );
 };

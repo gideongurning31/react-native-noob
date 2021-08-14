@@ -37,7 +37,7 @@ export default ({ startGame }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
-        {!isConfirmed && <Text style={styles.title}>Select a Number!</Text>}
+        {!isConfirmed && <Text style={styles.title}>Pick a Number!</Text>}
         <Card>
           <NumberInput maxLength={2} value={inputValue} onChangeText={inputHandler} />
           <View style={styles.buttonContainer}>
