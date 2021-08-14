@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export const palette = {
-  dark1: '#A19882',
-  dark2: '#C2B8A3',
-  light1: '#E6DDC6',
-  light2: '#FEF7DC',
+  dark1: '#6F4C5B',
+  dark2: '#9E7777',
+  light1: '#DEBA9D',
+  light2: '#F5E8C7',
   canvas: '#DEDEDE'
 };
 
