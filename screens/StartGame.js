@@ -1,18 +1,31 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 import { palette } from '../constants/globalStyles';
+import Card from './widgets/Card';
 
 export default () => {
+  const onReset = () => {
+    console.log('RESET');
+  };
+
+  const onConfirm = () => {
+    console.log('CONFIRM');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Select a Number!</Text>
-      <View style={styles.inputContainer}>
+      <Card>
         <TextInput style={styles.input} keyboardType='number-pad' />
         <View style={styles.buttonContainer}>
-          <Button title='Reset' color={palette.light1} />
-          <Button title='Confirm' color={palette.dark2} />
+          <View style={styles.button}>
+            <Button title='Reset' color={palette.light1} onPress={onReset} />
+          </View>
+          <View style={styles.button}>
+            <Button title='Confirm' color={palette.dark2} onPress={onConfirm} />
+          </View>
         </View>
-      </View>
+      </Card>
     </View>
   );
 };
@@ -26,17 +39,6 @@ const styles = StyleSheet.create({
   title: {
     color: palette.dark1,
     fontSize: 18
-  },
-  inputContainer: {
-    width: 300,
-    margin: 15,
-    padding: 10,
-    maxWidth: '80%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: palette.canvas,
-    borderRadius: 10,
-    elevation: 10
   },
   input: {
     borderWidth: 1,
@@ -56,5 +58,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly'
   },
-  button: {}
+  button: { width: 100 }
 });
