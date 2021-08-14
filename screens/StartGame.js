@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { StyleSheet, View, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import { palette } from '../constants/globalStyles';
 import Card from './widgets/Card';
 import NumberInput from './widgets/NumberInput';
+import BoldText from './widgets/BoldText';
 import GameCard from './GameCard';
 
 export default ({ startGame }) => {
@@ -23,9 +24,7 @@ export default ({ startGame }) => {
   const confirmHandler = () => {
     const selected = parseInt(inputValue);
     if (isNaN(selected) || selected <= 0 || selected > 99) {
-      Alert.alert('Invalid number!', 'Value must be between 1 and 99.', [
-        { text: 'Okay', style: 'destructive', onPress: onReset }
-      ]);
+      Alert.alert('Invalid number!', 'Value must be between 1 and 99.', [{ text: 'Okay', style: 'default', onPress: onReset }]);
       return;
     }
     Keyboard.dismiss();
@@ -37,7 +36,7 @@ export default ({ startGame }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
-        {!isConfirmed && <Text style={styles.title}>Pick a Number!</Text>}
+        {!isConfirmed && <BoldText style={{ ...styles.title }}>Pick a Number!</BoldText>}
         <Card>
           <NumberInput maxLength={2} value={inputValue} onChangeText={inputHandler} />
           <View style={styles.buttonContainer}>
@@ -71,5 +70,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly'
   },
-  button: { width: 100 }
+  button: {
+    width: 100
+  }
 });

@@ -11,9 +11,23 @@ export const palette = {
 export const globalStyles = StyleSheet.create({
   selectedNumber: {
     fontSize: 25,
-    fontWeight: 'bold',
     textAlign: 'center',
     marginVertical: 15,
     color: palette.dark1
+  },
+  font: {
+    fontFamily: 'regular',
+    color: palette.dark1,
+    fontSize: 18
+  },
+  fontItalic: {
+    fontFamily: 'italic',
+    color: palette.dark1,
+    fontSize: 16
+  },
+  fontBold: {
+    fontFamily: 'bold',
+    color: palette.dark1,
+    fontSize: 20
   }
 });

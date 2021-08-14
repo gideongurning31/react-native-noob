@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { palette } from '../../constants/globalStyles';
+import BoldText from '../widgets/BoldText';
 
 export default () => {
   return (
     <View style={styles.header}>
-      <Text style={styles.headerTitle}>Guess a Number</Text>
+      <BoldText style={styles.headerTitle}>Guess a Number</BoldText>
     </View>
   );
 };
@@ -22,7 +23,6 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: palette.light2,
-    fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 25
   }
 });

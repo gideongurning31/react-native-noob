@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, View, Text, Button, Alert } from 'react-native';
+import { StyleSheet, View, Button, Alert } from 'react-native';
 import { globalStyles, palette } from '../constants/globalStyles';
+import StdText from './widgets/StdText';
 import Card from './widgets/Card';
 
 function guessNumber(min, max) {
@@ -45,8 +46,10 @@ export default ({ usersNumber, restartGame }) => {
 
   return (
     <Card>
-      <Text>{usersNumber === comNumber ? `Computer guessed your number in ${count.current} turns.` : 'Is your number greater or lower than:'}</Text>
-      <Text style={globalStyles.selectedNumber}>{comNumber}</Text>
+      <StdText style={styles.cardText}>
+        {usersNumber === comNumber ? `Computer guessed your number in ${count.current} turns.` : 'Is your number greater or lower than:'}
+      </StdText>
+      <StdText style={globalStyles.selectedNumber}>{comNumber}</StdText>
       {usersNumber !== comNumber && displayButtons()}
       {usersNumber === comNumber && (
         <View style={styles.button}>
@@ -58,6 +61,9 @@ export default ({ usersNumber, restartGame }) => {
 };
 
 const styles = StyleSheet.create({
+  cardText: {
+    textAlign: 'center'
+  },
   buttonContainer: {
     width: '100%',
     marginVertical: 15,

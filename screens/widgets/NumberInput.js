@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderRadius: 5,
+    fontFamily: 'bold',
     backgroundColor: palette.light2,
     borderColor: palette.dark2,
     color: palette.dark1,
