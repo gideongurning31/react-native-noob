@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, View, Button, Alert } from 'react-native';
+import { StyleSheet, View, Button, Image, Alert } from 'react-native';
 import { globalStyles, palette } from '../constants/globalStyles';
 import StdText from './widgets/StdText';
 import Card from './widgets/Card';
@@ -47,9 +47,13 @@ export default ({ usersNumber, restartGame }) => {
   return (
     <Card>
       <StdText style={styles.cardText}>
-        {usersNumber === comNumber ? `Computer guessed your number in ${count.current} turns.` : 'Is your number greater or lower than:'}
+        {usersNumber === comNumber
+          ? `It took ${count.current} turns to guess your number, here's your reward:`
+          : 'Is your number greater or lower than:'}
       </StdText>
-      <StdText style={globalStyles.selectedNumber}>{comNumber}</StdText>
+      {usersNumber === comNumber && count.current % 2 === 0 && <Image source={require('../assets/images/emi.jpg')} style={styles.image} fadeDuration={600} />}
+      {usersNumber === comNumber && count.current % 2 !== 0 && <Image source={require('../assets/images/gal.jpg')} style={styles.image} fadeDuration={600} />}
+      <StdText style={globalStyles.selectedNumber}>{usersNumber !== comNumber ? comNumber : `Your number is ${comNumber}`}</StdText>
       {usersNumber !== comNumber && displayButtons()}
       {usersNumber === comNumber && (
         <View style={styles.button}>
@@ -66,9 +70,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: '100%',
-    marginVertical: 15,
+    marginVertical: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly'
   },
-  button: { width: 100 }
+  button: { width: 100 },
+  image: {
+    margin: 20,
+    width: '80%',
+    height: '50%'
+  }
 });
