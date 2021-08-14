@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     maxWidth: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: palette.canvas,
+    backgroundColor: palette.light2,
     borderRadius: 10,
     elevation: 10
   }

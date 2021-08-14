@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import { palette } from '../../constants/globalStyles';
 
