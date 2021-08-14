@@ -12,16 +12,24 @@ export default ({ usersNumber }) => {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  function onLower() {
+    console.log(usersNumber < comNumber ? 'OK' : 'Lied');
+  }
+
+  function onGreater() {
+    console.log(usersNumber > comNumber ? 'OK' : 'Lied');
+  }
+
   return (
     <Card>
-      <Text>Computer guessed:</Text>
+      <Text>Is your number greater or lower?</Text>
       <Text style={globalStyles.selectedNumber}>{comNumber}</Text>
       <View style={styles.buttonContainer}>
         <View style={styles.button}>
-          <Button title='LOWER' color={palette.dark1} onPress={() => console.log('LOWER')} />
+          <Button title='LOWER' color={palette.dark1} onPress={onLower} />
         </View>
         <View style={styles.button}>
-          <Button title='GREATER' color={palette.dark1} onPress={() => console.log('GREATER')} />
+          <Button title='GREATER' color={palette.dark1} onPress={onGreater} />
         </View>
       </View>
     </Card>

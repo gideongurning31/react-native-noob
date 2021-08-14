@@ -3,13 +3,15 @@ import { StyleSheet, Text, Button } from 'react-native';
 import { globalStyles, palette } from '../constants/globalStyles';
 import Card from './widgets/Card';
 
-export default ({ selectedNumber }) => (
-  <Card style={styles.summaryContainer}>
-    <Text>You've selected:</Text>
-    <Text style={globalStyles.selectedNumber}>{selectedNumber}</Text>
-    <Button title='START GAME' color={palette.dark2} onPress={() => console.log(selectedNumber)} />
-  </Card>
-);
+export default ({ selectedNumber, startGame }) => {
+  return (
+    <Card style={styles.summaryContainer}>
+      <Text>You've selected:</Text>
+      <Text style={globalStyles.selectedNumber}>{selectedNumber}</Text>
+      <Button title='START GAME' color={palette.dark2} onPress={() => startGame(selectedNumber)} />
+    </Card>
+  );
+};
 
 const styles = StyleSheet.create({
   summaryContainer: {

@@ -5,7 +5,7 @@ import Card from './widgets/Card';
 import NumberInput from './widgets/NumberInput';
 import GameCard from './GameCard';
 
-export default () => {
+export default ({ startGame }) => {
   const [inputValue, setInputValue] = useState('');
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
@@ -28,10 +28,10 @@ export default () => {
       ]);
       return;
     }
+    Keyboard.dismiss();
     setInputValue('');
     setSelectedNumber(selected);
     setIsConfirmed(true);
-    Keyboard.dismiss();
   };
 
   return (
@@ -49,7 +49,7 @@ export default () => {
             </View>
           </View>
         </Card>
-        {isConfirmed && <GameCard selectedNumber={selectedNumber} />}
+        {isConfirmed && <GameCard selectedNumber={selectedNumber} startGame={startGame} />}
       </View>
     </TouchableWithoutFeedback>
   );

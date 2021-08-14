@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { globalStyles, palette } from '../../constants/globalStyles';
+import { palette } from '../../constants/globalStyles';
 
 export default () => {
   return (
@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     paddingTop: 36,
     backgroundColor: palette.dark1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 15
   },
   headerTitle: {
     color: palette.light2,
