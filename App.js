@@ -3,12 +3,7 @@ import { View } from 'react-native';
 import { LinearProgress } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
-import globalStyles from './global/Styles';
-import Categories from './screens/Categories';
-import CategoryMeals from './screens/CategoryMeals';
-import Favorites from './screens/Favorites';
-import Filters from './screens/Filters';
-import MealDetails from './screens/MealDetails';
+import StackNav from './navigations/StackNav';
 
 export default () => {
   const [fontsLoaded] = useFonts({
@@ -21,13 +16,7 @@ export default () => {
   if (fontsLoaded) {
     return (
       <SafeAreaProvider>
-        <View style={globalStyles.container}>
-          <Categories></Categories>
-          <CategoryMeals></CategoryMeals>
-          <Favorites></Favorites>
-          <Filters></Filters>
-          <MealDetails></MealDetails>
-        </View>
+        <StackNav></StackNav>
       </SafeAreaProvider>
     );
   }

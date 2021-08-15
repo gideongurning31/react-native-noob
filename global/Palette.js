@@ -1,7 +1,6 @@
 export default {
-  dark1: '#11324D',
-  dark2: '#6B7AA1',
-  ligth1: '#C1CFC0',
-  ligth2: '#E7E0C9',
-  canvas: '#DEDEDE'
+  primary: '#11324D',
+  accent: '#6B7AA1',
+  light: '#C1CFC0',
+  canvas: '#E7E0C9'
 };

@@ -1,13 +1,12 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import globalStyles from '../global/Styles';
 import TextReg from './widgets/TextReg';
 
 export default () => {
   return (
-    <View>
-      <TextReg>MEAL DETAILS</TextReg>
+    <View style={globalStyles.container}>
+      <TextReg>MEAL DETAILS SCREEN</TextReg>
     </View>
   );
 };
-
-const styles = StyleSheet.create({});

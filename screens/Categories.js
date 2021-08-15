@@ -1,13 +1,12 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import TextBold from './widgets/TextBold';
+import { View } from 'react-native';
+import globalStyles from '../global/Styles';
+import TextReg from './widgets/TextReg';
 
 export default () => {
   return (
-    <View>
-      <TextBold>CATEGORIES</TextBold>
+    <View style={globalStyles.container}>
+      <TextReg>CATEGORIES SCREEN</TextReg>
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
