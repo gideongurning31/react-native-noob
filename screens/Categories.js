@@ -9,8 +9,12 @@ export default ({ navigation }) => {
   return (
     <View style={globalStyles.container}>
       <TextReg>CATEGORIES SCREEN</TextReg>
-      <BtnPrimary>BUTTON</BtnPrimary>
-      <BtnAccent>BUTTON</BtnAccent>
+      <BtnPrimary style={{ margin: 10 }} onPress={() => navigation.navigate('categoryMeals')}>
+        to Category Meals
+      </BtnPrimary>
+      <BtnAccent style={{ margin: 10 }} onPress={() => navigation.navigate('mealDetails')}>
+        to Meal Details
+      </BtnAccent>
     </View>
   );
 };

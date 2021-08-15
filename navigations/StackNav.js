@@ -13,9 +13,9 @@ export default () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Group screenOptions={headerOptions}>
-          <Stack.Screen name='CATEGORIES' component={CategoriesScreen} />
-          <Stack.Screen name='CATEGORY MEALS' component={CategoryMealsScreen} />
-          <Stack.Screen name='MEAL DETAILS' component={MealDetailsScreen} />
+          <Stack.Screen name='categories' component={CategoriesScreen} options={{ title: 'CATEGORIES' }} />
+          <Stack.Screen name='categoryMeals' component={CategoryMealsScreen} options={{ title: 'CATEGORY MEALS' }} />
+          <Stack.Screen name='mealDetails' component={MealDetailsScreen} options={{ title: 'MEAL DETAILS' }} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
@@ -31,5 +31,6 @@ const headerOptions = {
     flex: 1,
     fontFamily: 'bold',
     color: palette.light
-  }
+  },
+  headerTintColor: palette.canvas
 };
