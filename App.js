@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { LinearProgress } from 'react-native-elements';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
 import Categories from './screens/Categories';
 import CategoryMeals from './screens/CategoryMeals';
@@ -17,13 +19,15 @@ export default () => {
 
   if (fontsLoaded) {
     return (
-      <View style={styles.container}>
-        <Categories></Categories>
-        <CategoryMeals></CategoryMeals>
-        <Favorites></Favorites>
-        <Filters></Filters>
-        <MealDetails></MealDetails>
-      </View>
+      <SafeAreaProvider>
+        <View style={styles.container}>
+          <Categories></Categories>
+          <CategoryMeals></CategoryMeals>
+          <Favorites></Favorites>
+          <Filters></Filters>
+          <MealDetails></MealDetails>
+        </View>
+      </SafeAreaProvider>
     );
   }
 
@@ -36,19 +40,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#DEDEDE',
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  errorText: {
-    color: 'cyan',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 25
   }
 });
 
 const loading = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.errorText}>LOADING...</Text>
+    <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+      <LinearProgress color='primary' />
     </View>
   );
 };
