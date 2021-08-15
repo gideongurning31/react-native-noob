@@ -13,7 +13,7 @@ export default () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Group screenOptions={headerOptions}>
-          <Stack.Screen name='categories' component={CategoriesScreen} options={{ title: 'CATEGORIES' }} />
+          <Stack.Screen name='categories' component={CategoriesScreen} options={{ title: 'FOOD CATEGORIES' }} />
           <Stack.Screen name='categoryMeals' component={CategoryMealsScreen} options={{ title: 'CATEGORY MEALS' }} />
           <Stack.Screen name='mealDetails' component={MealDetailsScreen} options={{ title: 'MEAL DETAILS' }} />
         </Stack.Group>
@@ -24,13 +24,13 @@ export default () => {
 
 const headerOptions = {
   headerStyle: {
-    backgroundColor: palette.primary
+    backgroundColor: palette.PRIMARY
   },
   headerTitleAlign: 'center',
   headerTitleStyle: {
     flex: 1,
     fontFamily: 'bold',
-    color: palette.light
+    color: palette.LIGHT
   },
-  headerTintColor: palette.canvas
+  headerTintColor: palette.CANVAS
 };

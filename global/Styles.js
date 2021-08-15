@@ -4,12 +4,12 @@ import palette from './Palette';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: palette.light,
+    backgroundColor: palette.LIGHT,
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
-    color: palette.primary,
+    color: palette.PRIMARY,
     fontSize: 18
   },
   textRegular: {

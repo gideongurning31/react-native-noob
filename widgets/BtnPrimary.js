@@ -15,7 +15,7 @@ export default ({ onPress, style, children }) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: palette.primary,
+    backgroundColor: palette.PRIMARY,
     padding: 10,
     minWidth: 100,
     borderRadius: 5,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    color: palette.canvas,
+    color: palette.CANVAS,
     textAlign: 'center'
   }
 });
