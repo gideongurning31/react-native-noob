@@ -4,7 +4,7 @@ import palette from './Palette';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: palette.LIGHT,
+    backgroundColor: palette.CANVAS,
     justifyContent: 'center',
     alignItems: 'center'
   },

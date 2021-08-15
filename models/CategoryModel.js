@@ -9,12 +9,12 @@ class CategoryModel {
 export default CategoryModel;
 
 export const CATEGORIES = [
-  new CategoryModel('c1', 'Indonesian', '#f5d142'),
-  new CategoryModel('c2', 'Western', '#f5428d'),
-  new CategoryModel('c3', 'Japanese', '#ffc7ff'),
-  new CategoryModel('c4', 'Other Asians', '#f54242'),
-  new CategoryModel('c5', 'Fast Food', '#368dff'),
-  new CategoryModel('c6', 'Snacks & Light Meals', '#9eecff'),
-  new CategoryModel('c7', 'Bakery & Cakes', '#b9ffb0'),
-  new CategoryModel('c8', 'Deserts & Beverages', '#47fced')
+  new CategoryModel('c1', 'Indonesian', '#F5D142'),
+  new CategoryModel('c2', 'Western', '#F5A442'),
+  new CategoryModel('c3', 'Japanese', '#FFC7FF'),
+  new CategoryModel('c4', 'Asian', '#FFE194'),
+  new CategoryModel('c5', 'Fast Food', '#B9FFB0'),
+  new CategoryModel('c6', 'Bakery & Cakes', '#28FFBF'),
+  new CategoryModel('c7', 'Snacks & Light Meals', '#9EECFF'),
+  new CategoryModel('c8', 'Deserts & Beverages', '#47FCED')
 ];

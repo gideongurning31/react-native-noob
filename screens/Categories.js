@@ -1,19 +1,36 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, TouchableOpacity } from 'react-native';
 import globalStyles from '../global/Styles';
 import TextReg from '../widgets/TextReg';
+import CategoryCard from '../widgets/CategoryCard';
 import { CATEGORIES } from '../models/CategoryModel';
-
-const renderCategoryList = data => {
-  return <TextReg style={{ margin: 10 }}>{data.item.title}</TextReg>;
-};
 
 export default ({ navigation }) => {
   return (
-    <View style={globalStyles.container}>
-      <FlatList data={CATEGORIES} numColumns={2} renderItem={renderCategoryList} />
+    <View style={styles.container}>
+      <FlatList
+        data={CATEGORIES}
+        numColumns={2}
+        renderItem={data => {
+          return (
+            <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('categoryMeals', data.item.id)}>
+              <CategoryCard color={data.item.color}>
+                <TextReg style={styles.categoryText}>{data.item.title}</TextReg>
+              </CategoryCard>
+            </TouchableOpacity>
+          );
+        }}
+      />
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    ...globalStyles.container,
+    paddingTop: 20
+  },
+  categoryText: {
+    textAlign: 'center'
+  }
+});
