@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import TextReg from './widgets/TextReg';
 
 export default () => {
   return (
     <View>
-      <Text>MEAL DETAILS</Text>
+      <TextReg>MEAL DETAILS</TextReg>
     </View>
   );
 };
