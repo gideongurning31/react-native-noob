@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { LinearProgress } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
+import globalStyles from './global/Styles';
 import Categories from './screens/Categories';
 import CategoryMeals from './screens/CategoryMeals';
 import Favorites from './screens/Favorites';
@@ -20,7 +21,7 @@ export default () => {
   if (fontsLoaded) {
     return (
       <SafeAreaProvider>
-        <View style={styles.container}>
+        <View style={globalStyles.container}>
           <Categories></Categories>
           <CategoryMeals></CategoryMeals>
           <Favorites></Favorites>
@@ -31,19 +32,6 @@ export default () => {
     );
   }
 
-  return loading();
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#DEDEDE',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
-
-const loading = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'flex-start' }}>
       <LinearProgress color='primary' />

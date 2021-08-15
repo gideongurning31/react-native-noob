@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import TextReg from './widgets/TextReg';
+import TextBold from './widgets/TextBold';
 
 export default () => {
   return (
     <View>
-      <TextReg>CATEGORIES</TextReg>
+      <TextBold>CATEGORIES</TextBold>
     </View>
   );
 };
