@@ -14,7 +14,7 @@ export default () => {
       <Stack.Navigator>
         <Stack.Group screenOptions={headerOptions}>
           <Stack.Screen name='categories' component={CategoriesScreen} options={{ title: 'FOOD CATEGORIES' }} />
-          <Stack.Screen name='categoryMeals' component={CategoryMealsScreen} options={{ title: 'CATEGORY MEALS' }} />
+          <Stack.Screen name='categoryMeals' component={CategoryMealsScreen} options={{ title: 'MEALS BY CATEGORY' }} />
           <Stack.Screen name='mealDetails' component={MealDetailsScreen} options={{ title: 'MEAL DETAILS' }} />
         </Stack.Group>
       </Stack.Navigator>

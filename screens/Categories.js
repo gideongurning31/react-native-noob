@@ -13,7 +13,7 @@ export default ({ navigation }) => {
         numColumns={2}
         renderItem={data => {
           return (
-            <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('categoryMeals', data.item.id)}>
+            <TouchableOpacity onPress={() => navigation.navigate('categoryMeals', data.item)} activeOpacity={0.8}>
               <CategoryCard color={data.item.color}>
                 <TextReg style={styles.categoryText}>{data.item.title}</TextReg>
               </CategoryCard>
