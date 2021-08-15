@@ -4,8 +4,8 @@ import palette from '../global/Palette';
 import TextBold from './TextBold';
 import TextReg from './TextReg';
 
-export default ({ children }) => (
-  <TouchableOpacity style={styles.mainContainer} activeOpacity={0.5}>
+export default ({ children, navigate }) => (
+  <TouchableOpacity onPress={() => navigate('mealDetails', children)} style={styles.mainContainer} activeOpacity={0.5}>
     <ImageBackground source={{ uri: children.imageUrl }} style={styles.backgroundImage}>
       <View style={styles.textContainer}>
         <TextBold style={styles.text}>{children.title}</TextBold>

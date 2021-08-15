@@ -5,7 +5,7 @@ import TextBold from '../widgets/TextBold';
 import MealCard from '../widgets/MealCard';
 import { MEALS } from '../models/MealsModel';
 
-export default ({ route: { params } }) => {
+export default ({ navigation, route: { params } }) => {
   const mealsByCategory = MEALS.filter(meal => meal.categoryIds.indexOf(params.id) > -1);
 
   return (
@@ -14,7 +14,7 @@ export default ({ route: { params } }) => {
         {params.title.toUpperCase()} {['c1', 'c2', 'c3', 'c4'].indexOf(params.id) > -1 && 'FOOD'}
       </TextBold>
       <View style={styles.contentContainer}>
-        <FlatList data={mealsByCategory} renderItem={({ item }) => <MealCard>{item}</MealCard>} />
+        <FlatList data={mealsByCategory} renderItem={({ item }) => <MealCard navigate={navigation.navigate}>{item}</MealCard>} />
       </View>
     </View>
   );
