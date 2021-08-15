@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Image, FlatList } from 'react-native';
 import globalStyles from '../global/Styles';
 import TextBold from '../widgets/TextBold';
-import TextReg from '../widgets/TextReg';
+import MealCard from '../widgets/MealCard';
 import { MEALS } from '../models/MealsModel';
 
 export default ({ route: { params } }) => {
@@ -14,27 +14,22 @@ export default ({ route: { params } }) => {
       <TextBold style={styles.title}>
         {params.title.toUpperCase()} {['c1', 'c2', 'c3', 'c4'].indexOf(params.id) > -1 && 'FOOD'}
       </TextBold>
-      <FlatList
-        data={mealsByCategory}
-        renderItem={({ item }) => (
-          <View>
-            <TextReg>{item.title}</TextReg>
-          </View>
-        )}
-      />
+      <View style={styles.contentContainer}>
+        <FlatList data={mealsByCategory} renderItem={({ item }) => <MealCard>{item}</MealCard>} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 25
-  },
   image: {
     height: 100,
     width: 100
   },
-  content: {
+  title: {
+    fontSize: 25
+  },
+  contentContainer: {
     flex: 1
   }
 });
