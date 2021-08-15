@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import globalStyles from '../global/Styles';
-import TextReg from './widgets/TextReg';
+import TextReg from '../widgets/TextReg';
 
 export default () => {
   return (
