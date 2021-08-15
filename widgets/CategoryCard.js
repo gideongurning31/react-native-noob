@@ -6,7 +6,7 @@ export default ({ children, color }) => <View style={{ ...styles.card, backgroun
 const styles = StyleSheet.create({
   card: {
     width: 150,
-    height: 100,
+    height: 120,
     margin: 15,
     padding: 10,
     maxWidth: '80%',
