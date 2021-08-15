@@ -1,22 +1,28 @@
 import React from 'react';
-import { StyleSheet, View, Touchable } from 'react-native';
-import MyComponent from './components/MyComponent';
+import { StyleSheet, View } from 'react-native';
+import Categories from './screens/Categories';
+import CategoryMeals from './screens/CategoryMeals';
+import Favorites from './screens/Favorites';
+import Filters from './screens/Filters';
+import MealDetails from './screens/MealDetails';
 
 export default () => {
   return (
-    <Touchable>
-      <View style={styles.container}>
-        <MyComponent />
-      </View>
-    </Touchable>
+    <View style={styles.container}>
+      <Categories></Categories>
+      <CategoryMeals></CategoryMeals>
+      <Favorites></Favorites>
+      <Filters></Filters>
+      <MealDetails></MealDetails>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: '#DEDEDE',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
