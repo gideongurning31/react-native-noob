@@ -9,5 +9,26 @@ npm-debug.*
 *.orig.*
 web-build/
 
-# macOS
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+/typings
+yarn-error.log
+testem.log
+package-lock.json
+
+# System Files
 .DS_Store
+Thumbs.db
+coverage
+.env
