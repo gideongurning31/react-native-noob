@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import globalStyles from '../global/Styles';
 import TextBold from '../widgets/TextBold';
 import MealCard from '../widgets/MealCard';
@@ -10,7 +10,6 @@ export default ({ route: { params } }) => {
 
   return (
     <View style={{ ...globalStyles.container, paddingTop: 15 }}>
-      <Image style={styles.image} source={params.imagePath} />
       <TextBold style={styles.title}>
         {params.title.toUpperCase()} {['c1', 'c2', 'c3', 'c4'].indexOf(params.id) > -1 && 'FOOD'}
       </TextBold>
@@ -22,12 +21,9 @@ export default ({ route: { params } }) => {
 };
 
 const styles = StyleSheet.create({
-  image: {
-    height: 100,
-    width: 100
-  },
   title: {
-    fontSize: 25
+    fontSize: 25,
+    marginVertical: 20
   },
   contentContainer: {
     flex: 1

@@ -15,7 +15,7 @@ class MealsModel {
 export const MEALS = [
   new MealsModel(
     'm1',
-    ['c1', 'c2'],
+    ['c2', 'c5'],
     'Spaghetti with Tomato Sauce',
     'affordable',
     'simple',
@@ -35,7 +35,7 @@ export const MEALS = [
 
   new MealsModel(
     'm2',
-    ['c2'],
+    ['c7'],
     'Toast Hawaii',
     'affordable',
     'simple',
@@ -51,7 +51,7 @@ export const MEALS = [
 
   new MealsModel(
     'm3',
-    ['c3'],
+    ['c2', 'c5'],
     'Classic Hamburger',
     'pricey',
     'simple',
@@ -69,7 +69,7 @@ export const MEALS = [
 
   new MealsModel(
     'm4',
-    ['c4'],
+    ['c2', 'c7'],
     'Wiener Schnitzel',
     'luxurious',
     'challenging',
@@ -89,7 +89,7 @@ export const MEALS = [
 
   new MealsModel(
     'm5',
-    ['c1', 'c2', 'c5'],
+    ['c3', 'c4'],
     'Salad with Smoked Salmon',
     'luxurious',
     'simple',
@@ -107,8 +107,8 @@ export const MEALS = [
 
   new MealsModel(
     'm6',
-    ['c1', 'c6'],
-    'Delicious Orange Mousse',
+    ['c2', 'c6', 'c7', 'c8'],
+    'Orange Mousse',
     'affordable',
     'hard',
     'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
@@ -129,7 +129,7 @@ export const MEALS = [
 
   new MealsModel(
     'm7',
-    ['c7'],
+    ['c5', 'c6', 'c7'],
     'Pancakes',
     'affordable',
     'simple',
@@ -154,7 +154,7 @@ export const MEALS = [
 
   new MealsModel(
     'm8',
-    ['c8'],
+    ['c4'],
     'Creamy Indian Chicken Curry',
     'pricey',
     'challenging',
@@ -181,7 +181,7 @@ export const MEALS = [
 
   new MealsModel(
     'm9',
-    ['c1'],
+    ['c6', 'c7', 'c8'],
     'Chocolate Souffle',
     'affordable',
     'hard',
@@ -223,7 +223,7 @@ export const MEALS = [
   ),
   new MealsModel(
     'm10',
-    ['c1', 'c2', 'c5'],
+    ['c2', 'c4', 'c7'],
     'Asparagus Salad with Cherry Tomatoes',
     'luxurious',
     'simple',
@@ -238,6 +238,25 @@ export const MEALS = [
       'Halve the tomatoes',
       'Mix with asparagus, salad and dressing',
       'Serve with Baguette'
+    ]
+  ),
+  new MealsModel(
+    'm11',
+    ['c1', 'c4'],
+    'Chicken Satay with Peanut Sauce',
+    'affordable',
+    'challenging',
+    'https://cdn.pixabay.com/photo/2019/12/13/11/03/satay-4692718_960_720.jpg',
+    70,
+    ['1/4 cup coconut milk', '2 tablespoons soy sauce', '3 teaspoons yellow curry powder', '1 1/2 teaspoons turmeric', 'etc.'],
+    [
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      'Nullam eget ante lectus.',
+      'Nulla imperdiet, tortor id commodo condimentum, erat est vestibulum justo, vel venenatis lorem tortor sit amet quam.',
+      'Pellentesque gravida dolor et erat ornare, sed ultricies ligula efficitur.',
+      'Vestibulum pretium, nunc a accumsan commodo.',
+      'Eros metus lacinia elit.',
+      'Tincidunt lacinia sapien est sit amet justo.'
     ]
   )
 ];
