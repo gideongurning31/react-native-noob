@@ -10,9 +10,7 @@ const styles = StyleSheet.create({
     margin: 15,
     padding: 10,
     maxWidth: '80%',
-    justifyContent: 'center',
-    alignItems: 'center',
     borderRadius: 10,
-    elevation: 3
+    elevation: 5
   }
 });

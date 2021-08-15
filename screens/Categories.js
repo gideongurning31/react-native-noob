@@ -13,12 +13,12 @@ export default ({ navigation }) => {
         numColumns={2}
         renderItem={data => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate('categoryMeals', data.item)} activeOpacity={0.8}>
-              <CategoryCard color={data.item.color}>
+            <CategoryCard color={data.item.color}>
+              <TouchableOpacity onPress={() => navigation.navigate('categoryMeals', data.item)} activeOpacity={0.1} style={styles.card}>
                 <Image style={styles.image} source={data.item.imagePath} />
                 <TextReg style={styles.categoryText}>{data.item.title}</TextReg>
-              </CategoryCard>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </CategoryCard>
           );
         }}
       />
@@ -30,6 +30,10 @@ const styles = StyleSheet.create({
   container: {
     ...globalStyles.container,
     paddingTop: 20
+  },
+  card: {
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   image: {
     height: 60,
