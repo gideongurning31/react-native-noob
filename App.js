@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { LinearProgress } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
-import StackNav from './navigations/StackNav';
+import StackNav from './global/Navigation';
 
 export default () => {
   const [fontsLoaded] = useFonts({
