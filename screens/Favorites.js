@@ -1,19 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import globalStyles from '../global/Styles';
-import TextReg from '../widgets/TextReg';
+import MealsList from './MealsList';
+import { MEALS } from '../models/MealsModel';
 
-export default () => {
-  return (
-    <View style={styles.container}>
-      <TextReg>FAVORITES SCREEN</TextReg>
-    </View>
-  );
+export default ({ navigation }) => {
+  const favorites = ['m3', 'm6', 'm7', 'm9', 'm11'];
+  return <MealsList navigation={navigation} meals={MEALS.filter(meal => favorites.includes(meal.id))} />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    ...globalStyles.container,
-    paddingTop: 20
-  }
-});
